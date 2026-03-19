@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fashion Advisor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #eef2ff 0%, #f8faff 100%);
+            color: #222;
+        }
+
+        .topbar {
+            width: 100%;
+            background: #ffffffcc;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .topbar-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #1f2937;
+        }
+
+        .brand p {
+            margin: 4px 0 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .welcome-chip {
+            background: #eef2ff;
+            color: #374151;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background: #4338ca;
+        }
+
+        .page {
+            max-width: 1300px;
+            margin: 24px auto 80px auto;
+            padding: 0 18px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 18px 40px rgba(79, 70, 229, 0.18);
+            margin-bottom: 24px;
+        }
+
+        .hero h2 {
+            margin: 0 0 10px 0;
+            font-size: 30px;
+        }
+
+        .hero p {
+            margin: 0;
+            color: #e8e7ff;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+            padding: 22px;
+        }
+
+        .panel h3 {
+            margin: 0 0 18px 0;
+            font-size: 24px;
+            color: #1f2937;
+        }
+
+        .subtext {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 10px 0 8px 0;
+            color: #374151;
+        }
+
+        input[type="file"],
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 14px;
+            font-size: 15px;
+            background: #fff;
+        }
+
+        .primary-btn {
+            width: 100%;
+            border: none;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: white;
+            padding: 14px 16px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 14px;
+        }
+
+        .primary-btn:hover {
+            opacity: 0.95;
+        }
+
+        .secondary-btn {
+            border: none;
+            background: #eef2ff;
+            color: #3730a3;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 14px;
+        }
+
+        .status {
+            margin-top: 12px;
+            min-height: 20px;
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .preview-box {
+            margin-top: 14px;
+            display: none;
+        }
+
+        .preview-box img {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .result-section {
+            margin-top: 24px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+            padding: 24px;
+            margin-bottom: 22px;
+        }
+
+        .result-card h3 {
+            margin: 0 0 18px 0;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .info-box p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .color-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .color-card {
+            background: white;
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .color-box {
+            width: 100%;
+            height: 78px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .dress-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            margin-top: 16px;
+        }
+
+        .dress-card {
+            background: white;
+            border-radius: 18px;
+            padding: 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+        }
+
+        .dress-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 14px;
+            background: #edf2f7;
+        }
+
+        .dress-card p {
+            margin: 12px 0 0 0;
+            text-align: center;
+            font-weight: 700;
+            color: #374151;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .floating-chat-btn {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 12px 28px rgba(79, 70, 229, 0.3);
+            z-index: 50;
+        }
+
+        .chat-widget {
+            position: fixed;
+            right: 24px;
+            bottom: 100px;
+            width: 360px;
+            max-width: calc(100vw - 30px);
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+            overflow: hidden;
+            z-index: 55;
+            display: none;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 14px 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .chatbox {
+            height: 320px;
+            overflow-y: auto;
+            padding: 14px;
+            background: #f8fafc;
+        }
+
+        .chat-message {
+            max-width: 78%;
+            padding: 10px 14px;
+            margin: 8px 0;
+            border-radius: 16px;
+            line-height: 1.5;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background: #4f46e5;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-message {
+            background: white;
+            color: #1f2937;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .chat-input-area {
+            padding: 12px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #e5e7eb;
+            background: white;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            margin: 0;
+        }
+
+        .chat-input-area button {
+            width: 92px;
+            border: none;
+            border-radius: 12px;
+            background: #4f46e5;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @media (max-width: 980px) {
+            .grid-2,
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .topbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .topbar-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <h1>AI Fashion Advisor</h1>
+                <p>Smart outfit, color, and styling recommendations based on your look</p>
+            </div>
+
+            <div class="topbar-actions">
+                <div id="welcomeUser" class="welcome-chip">Welcome</div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="hero">
+            <h2>Find colors and outfits that suit you</h2>
+            <p>
+                Upload a clear selfie and a clear front-view full-body image.
+                Best body-shape results come from fitted clothing, straight pose,
+                plain background, and arms slightly away from the body.
+            </p>
+        </div>
+
+        <div class="grid-2">
+            <div class="panel">
+                <h3>Skin Tone Analysis</h3>
+                <div class="subtext">Use a clear selfie with proper lighting for better accuracy.</div>
+
+                <form id="skinForm">
+                    <label>Upload Selfie</label>
+                    <input type="file" id="skinImage" name="image" accept="image/*" required>
+                    <button class="primary-btn" type="submit">Analyze Skin Tone</button>
+                </form>
+
+                <div id="skinStatus" class="status"></div>
+
+                <div id="skinPreviewBox" class="preview-box">
+                    <img id="skinPreview" src="" alt="Selfie Preview">
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Body Shape Analysis</h3>
+                <div class="subtext">Upload a front-view full-body image and choose an outfit category.</div>
+
+                <form id="bodyForm">
+                    <label>Upload Full Body Image</label>
+                    <input type="file" id="bodyImage" name="image" accept="image/*" required>
+
+                    <label>Select Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Choose Category</option>
+                        <option value="Western">Western</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Party">Party</option>
+                    </select>
+
+                    <button class="primary-btn" type="submit">Analyze Body Shape</button>
+                </form>
+
+                <div id="bodyStatus" class="status"></div>
+
+                <div id="bodyPreviewBox" class="preview-box">
+                    <img id="bodyPreview" src="" alt="Body Preview">
+                </div>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div id="skinResult" class="result-card hidden">
+                <h3>Skin Tone Result</h3>
+
+                <div class="result-grid">
+                    <div class="info-box">
+                        <p><strong>Detected Skin Tone:</strong> <span id="skinToneText"></span></p>
+                        <p>
+                            <strong>Undertone:</strong>
+                            <select id="undertoneSelector" style="margin-top: 8px;">
+                                <option value="Warm">Warm</option>
+                                <option value="Cool">Cool</option>
+                                <option value="Neutral">Neutral</option>
+                            </select>
+                        </p>
+                        <p><strong>Brightness:</strong> <span id="brightnessText"></span></p>
+                        <button class="secondary-btn" type="button" onclick="updateColors()">Update Color Suggestions</button>
+                    </div>
+
+                    <div class="info-box">
+                        <h4 style="margin-top:0;">Suggested Colors</h4>
+                        <div id="colorList" class="color-list"></div>
+                        <button id="moreColorsBtn" class="secondary-btn hidden" type="button">Suggest More Colors</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bodyResult" class="result-card hidden">
+                <h3>Body Shape Result</h3>
+
+                <div class="info-box">
+                    <p><strong>Detected Body Shape:</strong> <span id="bodyShapeText"></span></p>
+                    <p><strong>Confidence:</strong> <span id="bodyConfidenceText"></span></p>
+                    <p><strong>Selected Category:</strong> <span id="categoryText"></span></p>
+                    <p id="bodyMessageText"></p>
+                </div>
+
+                <h3 style="margin-top: 24px;">Recommended Dress Types</h3>
+                <div id="dressList" class="dress-list"></div>
+                <button id="moreDressesBtn" class="secondary-btn hidden" type="button">Suggest More Dresses</button>
+            </div>
+        </div>
+    </div>
+
+    <button class="floating-chat-btn" onclick="toggleChat()">💬</button>
+
+    <div id="chatWidget" class="chat-widget">
+        <div class="chat-header">
+            <span>Fashion Assistant</span>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div id="chatbox" class="chatbox">
+            <div class="chat-message bot-message">
+                Hi! Ask me fashion questions about colors, body shapes, dresses, traditional wear, western wear, casual looks, party outfits, and styling tips.
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask a fashion question...">
+            <button type="button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = "http://127.0.0.1:5000";
+
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+            window.location.href = "login.html";
+        } else {
+            document.getElementById("welcomeUser").innerText = "Welcome, " + loggedInUser;
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "login.html";
+        }
+
+        let allColors = [];
+        let shownColors = 0;
+
+        let allDresses = [];
+        let shownDresses = 0;
+
+        function previewImage(inputId, imgId, boxId) {
+            const input = document.getElementById(inputId);
+            const img = document.getElementById(imgId);
+            const box = document.getElementById(boxId);
+
+            if (input.files && input.files[0]) {
+                img.src = URL.createObjectURL(input.files[0]);
+                box.style.display = "block";
+            } else {
+                img.src = "";
+                box.style.display = "none";
+            }
+        }
+
+        document.getElementById("skinImage").addEventListener("change", function () {
+            previewImage("skinImage", "skinPreview", "skinPreviewBox");
+        });
+
+        document.getElementById("bodyImage").addEventListener("change", function () {
+            previewImage("bodyImage", "bodyPreview", "bodyPreviewBox");
+        });
+
+        function renderColors(reset = false) {
+            const colorList = document.getElementById("colorList");
+            const moreColorsBtn = document.getElementById("moreColorsBtn");
+
+            if (reset) {
+                colorList.innerHTML = "";
+                shownColors = 0;
+            }
+
+            const nextColors = allColors.slice(shownColors, shownColors + 5);
+
+            nextColors.forEach(color => {
+                const div = document.createElement("div");
+                div.className = "color-card";
+                div.innerHTML = `
+                    <div class="color-box" style="background:${color.hex || '#cccccc'};"></div>
+                    <div>${color.name || 'Color'}</div>
+                `;
+                colorList.appendChild(div);
+            });
+
+            shownColors += nextColors.length;
+
+            if (shownColors < allColors.length) {
+                moreColorsBtn.classList.remove("hidden");
+            } else {
+                moreColorsBtn.classList.add("hidden");
+            }
+        }
+
+        function renderDresses(reset = false) {
+            const dressList = document.getElementById("dressList");
+            const moreDressesBtn = document.getElementById("moreDressesBtn");
+
+            if (reset) {
+                dressList.innerHTML = "";
+                shownDresses = 0;
+            }
+
+            const nextDresses = allDresses.slice(shownDresses, shownDresses + 3);
+
+            nextDresses.forEach(item => {
+                const name = item.name || "Dress";
+                let image = item.image || "";
+
+                if (image && image.startsWith("/images/")) {
+                    image = API_BASE + image;
+                }
+
+                const div = document.createElement("div");
+                div.className = "dress-card";
+                div.innerHTML = `
+                    <img src="${image || 'https://via.placeholder.com/600x700?text=Dress+Image'}"
+                         alt="${name}"
+                         onerror="this.src='https://via.placeholder.com/600x700?text=Dress+Image'">
+                    <p>${name}</p>
+                `;
+                dressList.appendChild(div);
+            });
+
+            shownDresses += nextDresses.length;
+
+            if (shownDresses < allDresses.length) {
+                moreDressesBtn.classList.remove("hidden");
+            } else {
+                moreDressesBtn.classList.add("hidden");
+            }
+        }
+
+        async function updateColors() {
+            const tone = document.getElementById("skinToneText").innerText.trim();
+            const undertone = document.getElementById("undertoneSelector").value;
+            const skinStatus = document.getElementById("skinStatus");
+
+            skinStatus.innerText = "Updating colors...";
+
+            try {
+                const response = await fetch(`${API_BASE}/get_colors?tone=${encodeURIComponent(tone)}&undertone=${encodeURIComponent(undertone)}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    skinStatus.innerText = data.error;
+                    return;
+                }
+
+                allColors = data.colors || [];
+                renderColors(true);
+                skinStatus.innerText = "Color suggestions updated.";
+            } catch (error) {
+                skinStatus.innerText = "Backend connection issue.";
+                console.log(error);
+            }
+        }
+
+        document.getElementById("moreColorsBtn").addEventListener("click", function () {
+            renderColors(false);
+        });
+
+        document.getElementById("moreDressesBtn").addEventListener("click", function () {
+            renderDresses(false);
+        });
+
+        document.getElementById("skinForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById("skinImage");
+            const skinStatus = document.getElementById("skinStatus");
+
+            if (!fileInput.files[0]) {
+                skinStatus.innerText = "Please upload a selfie.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("image", fileInput.files[0]);
+
+            skinStatus.innerText = "Analyzing skin tone...";
+
+            try {
+                const response = await fetch(`${API_BASE}/upload/skin`, {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    skinStatus.innerText = data.error;
+                    return;
+                }
+
+                document.getElementById("skinResult").classList.remove("hidden");
+                document.getElementById("skinToneText").innerText = data.skin_tone || "";
+                document.getElementById("undertoneSelector").value = data.undertone || "Neutral";
+                
+                allColors = data.suggested_colors || [];
+                renderColors(true);
+
+                skinStatus.innerText = "Skin tone detected successfully.";
+            } catch (error) {
+                skinStatus.innerText = "Error connecting to backend.";
+                console.log(error);
+            }
+        });
+
+       document.getElementById("bodyForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("bodyImage");
+    const category = document.getElementById("category").value;
+    const bodyStatus = document.getElementById("bodyStatus");
+
+    if (!fileInput.files[0]) {
+        bodyStatus.innerText = "Please upload a full body image.";
+        return;
+    }
+
+    if (!category) {
+        bodyStatus.innerText = "Please select a category.";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", fileInput.files[0]);
+    formData.append("category", category);
+
+    bodyStatus.innerText = "Analyzing body shape...";
+
+    try {
+        const response = await fetch("http://127.0.0.1:5000/upload/body", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+            bodyStatus.innerText = data.error;
+            return;
+        }
+
+        document.getElementById("bodyResult").classList.remove("hidden");
+        document.getElementById("bodyShapeText").innerText = data.body_shape || "unknown";
+        document.getElementById("bodyConfidenceText").innerText = (data.confidence || 0) + "%";
+        document.getElementById("categoryText").innerText = data.category || category;
+        document.getElementById("bodyMessageText").innerText = data.message || "";
+
+        allDresses = data.recommendations || [];
+        renderDresses(true);
+
+        if (data.body_shape === "uncertain") {
+            bodyStatus.innerText = data.message || "Prediction is uncertain. Upload a clearer image.";
+        } else {
+            bodyStatus.innerText = "Body shape detected successfully.";
+        }
+
+    } catch (error) {
+        bodyStatus.innerText = "Error connecting to backend.";
+        console.log(error);
+    }
+});
+        function toggleChat() {
+            const chat = document.getElementById("chatWidget");
+            chat.style.display = chat.style.display === "block" ? "none" : "block";
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const chatbox = document.getElementById("chatbox");
+            const message = input.value.trim();
+
+            if (!message) return;
+
+            chatbox.innerHTML += `<div class="chat-message user-message">${message}</div>`;
+            input.value = "";
+            chatbox.scrollTop = chatbox.scrollHeight;
+
+            try {
+                const response = await fetch(`${API_BASE}/chat`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                chatbox.innerHTML += `<div class="chat-message bot-message">${data.reply || "No reply received."}</div>`;
+                chatbox.scrollTop = chatbox.scrollHeight;
+            } catch (error) {
+                chatbox.innerHTML += `<div class="chat-message bot-message">Backend connection error</div>`;
+                chatbox.scrollTop = chatbox.scrollHeight;
+                console.log(error);
+            }
+        }
+
+        document.getElementById("chatInput").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

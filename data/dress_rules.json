@@ -1,0 +1,638 @@
+{
+  "pear": {
+    "Western": [
+      {
+        "name": "A-Line Dress",
+        "image": "/dresses/western/a_line_dress.png"
+      },
+      {
+        "name": "Fit and Flare Dress",
+        "image": "/dresses/western/fit_and_flare_dress.png"
+      },
+      {
+        "name": "Empire Waist Dress",
+        "image": "/dresses/western/empire_waist_dress.png"
+      },
+      {
+        "name": "Skater Dress",
+        "image": "/dresses/western/skater_dress.png"
+      },
+      {
+        "name": "Wrap Dress",
+        "image": "/dresses/western/wrap_dress.png"
+      },
+      {
+        "name": "Maxi Dress",
+        "image": "/dresses/western/maxi_dress.png"
+      }
+    ],
+    "Traditional": [
+      {
+        "name": "Anarkali Suit",
+        "image": "/dresses/traditional/anarkali_suit.png"
+      },
+      {
+        "name": "A-Line Kurti",
+        "image": "/dresses/traditional/a_line_kurti.png"
+      },
+      {
+        "name": "Umbrella Kurti",
+        "image": "/dresses/traditional/umbrella_kurti.png"
+      },
+      {
+        "name": "Jacket Style Kurti",
+        "image": "/dresses/traditional/jacket_style_kurti.png"
+      },
+      {
+        "name": "Half Saree",
+        "image": "/dresses/traditional/half_saree.png"
+      },
+      {
+        "name": "Sharara Set",
+        "image": "/dresses/traditional/sharara_set.png"
+      }
+    ],
+    "Casual": [
+      {
+        "name": "Casual Maxi Dress",
+        "image": "/dresses/casual/casual_maxi_dress.png"
+      },
+      {
+        "name": "Layered Casual Outfit",
+        "image": "/dresses/casual/layered_casual_outfit.png"
+      },
+      {
+        "name": "Printed Casual Dress",
+        "image": "/dresses/casual/printed_casual_dress.png"
+      },
+      {
+        "name": "Coord Set Casual",
+        "image": "/dresses/casual/coord_set_casual.png"
+      },
+      {
+        "name": "Palazzo Casual Set",
+        "image": "/dresses/casual/palazzo_casual_set.png"
+      },
+      {
+        "name": "Tunic Top Pants",
+        "image": "/dresses/casual/tunic_top_pants.png"
+      }
+    ],
+    "Party": [
+      {
+        "name": "Party Gown",
+        "image": "/dresses/party_wear/embellished_gown.png"
+      },
+      {
+        "name": "Off Shoulder Gown",
+        "image": "/dresses/party_wear/off_shoulder_gown.png"
+      },
+      {
+        "name": "Party Lehenga",
+        "image": "/dresses/party_wear/party_lehenga.png"
+      },
+      {
+        "name": "Party Saree",
+        "image": "/dresses/party_wear/party_saree.png"
+      },
+      {
+        "name": "Ruffle Party Dress",
+        "image": "/dresses/party_wear/ruffle_party_dress.png"
+      },
+      {
+        "name": "Reception Lehenga",
+        "image": "/dresses/party_wear/reception_lehenga.png"
+      }
+    ]
+  },
+  "apple": {
+    "Western": [
+      {
+        "name": "Empire Waist Dress",
+        "image": "/dresses/western/empire_waist_dress.png"
+      },
+      {
+        "name": "A-Line Dress",
+        "image": "/dresses/western/a_line_dress.png"
+      },
+      {
+        "name": "Wrap Dress",
+        "image": "/dresses/western/wrap_dress.png"
+      },
+      {
+        "name": "Shirt Dress",
+        "image": "/dresses/western/shirt_dress.png"
+      },
+      {
+        "name": "Blazer Dress",
+        "image": "/dresses/western/blazer_dress.png"
+      },
+      {
+        "name": "Layered Western Outfit",
+        "image": "/dresses/western/layered_western_outfit.png"
+      }
+    ],
+    "Traditional": [
+      {
+        "name": "Anarkali Suit",
+        "image": "/dresses/traditional/anarkali_suit.png"
+      },
+      {
+        "name": "Ethnic Gown",
+        "image": "/dresses/traditional/ethnic_gown.png"
+      },
+      {
+        "name": "Jacket Style Kurti",
+        "image": "/dresses/traditional/jacket_style_kurti.png"
+      },
+      {
+        "name": "Palazzo Kurti Set",
+        "image": "/dresses/traditional/palazzo_kurti_set.png"
+      },
+      {
+        "name": "Straight Kurta Set",
+        "image": "/dresses/traditional/straight_kurta_set.png"
+      },
+      {
+        "name": "Salwar Suit",
+        "image": "/dresses/traditional/salwar_suit.png"
+      }
+    ],
+    "Casual": [
+      {
+        "name": "Casual Maxi Dress",
+        "image": "/dresses/casual/casual_maxi_dress.png"
+      },
+      {
+        "name": "Long Top Leggings",
+        "image": "/dresses/casual/long_top_leggings.png"
+      },
+      {
+        "name": "Oversized Top Outfit",
+        "image": "/dresses/casual/oversized_top_outfit.png"
+      },
+      {
+        "name": "Soft Fabric Outfit",
+        "image": "/dresses/casual/soft_fabric_outfit.png"
+      },
+      {
+        "name": "Straight Pants Outfit",
+        "image": "/dresses/casual/straight_pants_outfit.png"
+      },
+      {
+        "name": "Tunic Top Pants",
+        "image": "/dresses/casual/tunic_top_pants.png"
+      }
+    ],
+    "Party": [
+      {
+        "name": "Evening Dress",
+        "image": "/dresses/party_wear/evening_dress.png"
+      },
+      {
+        "name": "Embellished Gown",
+        "image": "/dresses/party_wear/embellished_gown.png"
+      },
+      {
+        "name": "Off Shoulder Gown",
+        "image": "/dresses/party_wear/off_shoulder_gown.png"
+      },
+      {
+        "name": "One Shoulder Gown",
+        "image": "/dresses/party_wear/one_shoulder_gown.png"
+      },
+      {
+        "name": "Fusion Party Outfit",
+        "image": "/dresses/party_wear/fusion_party_outfit.png"
+      },
+      {
+        "name": "Peplum Party Set",
+        "image": "/dresses/party_wear/peplum_party_set.png"
+      }
+    ]
+  },
+  "hourglass": {
+    "Western": [
+      {
+        "name": "Bodycon Dress",
+        "image": "/dresses/western/bodycon_dress.png"
+      },
+      {
+        "name": "Wrap Dress",
+        "image": "/dresses/western/wrap_dress.png"
+      },
+      {
+        "name": "Off Shoulder Dress",
+        "image": "/dresses/western/off_shoulder_dress.png"
+      },
+      {
+        "name": "Peplum Outfit",
+        "image": "/dresses/western/peplum_outfit.png"
+      },
+      {
+        "name": "Midi Dress",
+        "image": "/dresses/western/midi_dress.png"
+      },
+      {
+        "name": "Fit and Flare Dress",
+        "image": "/dresses/western/fit_and_flare_dress.png"
+      }
+    ],
+    "Traditional": [
+      {
+        "name": "Belted Saree",
+        "image": "/dresses/traditional/belted_saree.png"
+      },
+      {
+        "name": "Anarkali Suit",
+        "image": "/dresses/traditional/anarkali_suit.png"
+      },
+      {
+        "name": "Sharara Set",
+        "image": "/dresses/traditional/sharara_set.png"
+      },
+      {
+        "name": "Silk Saree",
+        "image": "/dresses/traditional/silk_saree.png"
+      },
+      {
+        "name": "Floor Length Anarkali",
+        "image": "/dresses/traditional/floor_length_anarkali.png"
+      },
+      {
+        "name": "Straight Cut Suit",
+        "image": "/dresses/traditional/straight_cut_suit.png"
+      }
+    ],
+    "Casual": [
+      {
+        "name": "Printed Casual Dress",
+        "image": "/dresses/casual/printed_casual_dress.png"
+      },
+      {
+        "name": "Casual Maxi Dress",
+        "image": "/dresses/casual/casual_maxi_dress.png"
+      },
+      {
+        "name": "Coord Set Casual",
+        "image": "/dresses/casual/coord_set_casual.png"
+      },
+      {
+        "name": "Flared Top Jeans",
+        "image": "dresses/casual/flared_top_jeans.png"
+      },
+      {
+        "name": "Layered Casual Outfit",
+        "image": "/dresses/casual/layered_casual_outfit.png"
+      },
+      {
+        "name": "Summer Dress Simple",
+        "image": "/dresses/casual/summer_dress_simple.png"
+      }
+    ],
+    "Party": [
+      {
+        "name": "Mermaid Gown",
+        "image": "/dresses/party_wear/mermaid_gown.png"
+      },
+      {
+        "name": "Cocktail Dress",
+        "image": "/dresses/party_wear/cocktail_dress.png"
+      },
+      {
+        "name": "Sequin Gown",
+        "image": "/dresses/party_wear/sequin_gown.png"
+      },
+      {
+        "name": "Shimmer Saree",
+        "image": "/dresses/party_wear/shimmer_saree.png"
+      },
+      {
+        "name": "One Shoulder Gown",
+        "image": "dresses/party_wear/one_shoulder_gown.png"
+      },
+      {
+        "name": "Glitter Dress",
+        "image": "/dresses/party_wear/glitter_dress.png"
+      }
+    ]
+  },
+  "rectangle": {
+    "Western": [
+      {
+        "name": "Peplum Outfit",
+        "image": "/dresses/western/peplum_outfit.png"
+      },
+      {
+        "name": "Ruffle Dress",
+        "image": "/dresses/western/ruffle_dress.png"
+      },
+      {
+        "name": "Skater Dress",
+        "image": "/dresses/western/skater_dress.png"
+      },
+      {
+        "name": "Crop Jacket Outfit",
+        "image": "/dresses/western/crop_jacket_outfit.png"
+      },
+      {
+        "name": "Wide Leg Pants Outfit",
+        "image": "/dresses/western/wide_leg_pants_outfit.png"
+      },
+      {
+        "name": "Layered Western Outfit",
+        "image": "/dresses/western/layered_western_outfit.png"
+      }
+    ],
+    "Traditional": [
+      {
+        "name": "Jacket Style Kurti",
+        "image": "/dresses/traditional/jacket_style_kurti.png"
+      },
+      {
+        "name": "Sharara Set",
+        "image": "/dresses/traditional/sharara_set.png"
+      },
+      {
+        "name": "Belted Saree",
+        "image": "/dresses/traditional/belted_saree.png"
+      },
+      {
+        "name": "A-Line Kurti",
+        "image": "/dresses/traditional/a_line_kurti.png"
+      },
+      {
+        "name": "Umbrella Kurti",
+        "image": "/dresses/traditional/umbrella_kurti.png"
+      },
+      {
+        "name": "Festive Lehanga",
+        "image": "/dresses/traditional/festive_lehanga.png"
+      }
+    ],
+    "Casual": [
+      {
+        "name": "Layered Casual Outfit",
+        "image": "/dresses/casual/layered_casual_outfit.png"
+      },
+      {
+        "name": "Coord Set Casual",
+        "image": "/dresses/casual/coord_set_casual.png"
+      },
+      {
+        "name": "Palazzo Casual Set",
+        "image": "/dresses/casual/palazzo_casual_set.png"
+      },
+      {
+        "name": "Printed Casual Dress",
+        "image": "/dresses/casual/printed_casual_dress.png"
+      },
+      {
+        "name": "Denim Jacket Outfit",
+        "image": "/dresses/casual/denim_jacket_outfit.png"
+      },
+      {
+        "name": "Comfort Wear Outfit",
+        "image": "/dresses/casual/comfort_wear_outfit.png"
+      }
+    ],
+    "Party": [
+      {
+        "name": "Ruffle Party Dress",
+        "image": "/dresses/party_wear/ruffle_party_dress.png"
+      },
+      {
+        "name": "Peplum Party Set",
+        "image": "/dresses/party_wear/peplum_party_set.png"
+      },
+      {
+        "name": "Fish Cut Skirt Set",
+        "image": "/dresses/party_wear/fish_cut_skirt_set.png"
+      },
+      {
+        "name": "Fusion Party Outfit",
+        "image": "/dresses/party_wear/fusion_party_outfit.png"
+      },
+      {
+        "name": "Glitter Dress",
+        "image": "/dresses/party_wear/glitter_dress.png"
+      },
+      {
+        "name": "Party Lehenga",
+        "image": "/dresses/party_wear/party_lehenga.png"
+      }
+    ]
+  },
+  "triangle": {
+    "Western": [
+      {
+        "name": "A-Line Dress",
+        "image": "/dresses/western/a_line_dress.png"
+      },
+      {
+        "name": "Fit and Flare Dress",
+        "image": "/dresses/western/fit_and_flare_dress.png"
+      },
+      {
+        "name": "Empire Waist Dress",
+        "image": "/dresses/western/empire_waist_dress.png"
+      },
+      {
+        "name": "Skater Dress",
+        "image": "/dresses/western/skater_dress.png"
+      },
+      {
+        "name": "Off Shoulder Dress",
+        "image": "/dresses/western/off_shoulder_dress.png"
+      },
+      {
+        "name": "Wrap Dress",
+        "image": "/dresses/western/wrap_dress.png"
+      }
+    ],
+    "Traditional": [
+      {
+        "name": "Anarkali Suit",
+        "image": "/dresses/traditional/anarkali_suit.png"
+      },
+      {
+        "name": "A-Line Kurti",
+        "image": "/dresses/traditional/a_line_kurti.png"
+      },
+      {
+        "name": "Jacket Style Kurti",
+        "image": "/dresses/traditional/jacket_style_kurti.png"
+      },
+      {
+        "name": "Umbrella Kurti",
+        "image": "/dresses/traditional/umbrella_kurti.png"
+      },
+      {
+        "name": "Half Saree",
+        "image": "/dresses/traditional/half_saree.png"
+      },
+      {
+        "name": "Sharara Set",
+        "image": "/dresses/traditional/sharara_set.png"
+      }
+    ],
+    "Casual": [
+      {
+        "name": "Casual Maxi Dress",
+        "image": "/dresses/casual/casual_maxi_dress.png"
+      },
+      {
+        "name": "Printed Casual Dress",
+        "image": "/dresses/casual/printed_casual_dress.png"
+      },
+      {
+        "name": "Layered Casual Outfit",
+        "image": "/dresses/casual/layered_casual_outfit.png"
+      },
+      {
+        "name": "Palazzo Casual Set",
+        "image": "/dresses/casual/palazzo_casual_set.png"
+      },
+      {
+        "name": "Coord Set Casual",
+        "image": "/dresses/casual/coord_set_casual.png"
+      },
+      {
+        "name": "Summer Dress Simple",
+        "image": "/dresses/casual/summer_dress_simple.png"
+      }
+    ],
+    "Party": [
+      {
+        "name": "Party Gown",
+        "image": "/dresses/party_wear/embellished_gown.png"
+      },
+      {
+        "name": "Party Saree",
+        "image": "/dresses/party_wear/party_saree.png"
+      },
+      {
+        "name": "Reception Lehenga",
+        "image": "/dresses/party_wear/reception_lehenga.png"
+      },
+      {
+        "name": "Off Shoulder Gown",
+        "image": "/dresses/party_wear/off_shoulder_gown.png"
+      },
+      {
+        "name": "Ruffle Party Dress",
+        "image": "/dresses/party_wear/ruffle_party_dress.png"
+      },
+      {
+        "name": "Party Lehenga",
+        "image": "/dresses/party_wear/party_lehenga.png"
+      }
+    ]
+  },
+  "inverted_triangle": {
+    "Western": [
+      {
+        "name": "Fit and Flare Dress",
+        "image": "/dresses/western/fit_and_flare_dress.png"
+      },
+      {
+        "name": "Skater Dress",
+        "image": "/dresses/western/skater_dress.png"
+      },
+      {
+        "name": "Maxi Dress",
+        "image": "/dresses/western/maxi_dress.png"
+      },
+      {
+        "name": "Wide Leg Pants Outfit",
+        "image": "/dresses/western/wide_leg_pants_outfit.png"
+      },
+      {
+        "name": "Bootcut Pants Outfit",
+        "image": "/dresses/western/bootcut_pants_outfit.png"
+      },
+      {
+        "name": "Jumpsuit Women",
+        "image": "/dresses/western/jumpsuit_women.png"
+      }
+    ],
+    "Traditional": [
+      {
+        "name": "Festive Lehanga",
+        "image": "/dresses/traditional/festive_lehanga.png"
+      },
+      {
+        "name": "Lahenga",
+        "image": "/dresses/traditional/lahenga.png"
+      },
+      {
+        "name": "Sharara Set",
+        "image": "/dresses/traditional/sharara_set.png"
+      },
+      {
+        "name": "Patiala Suit",
+        "image": "/dresses/traditional/patiala_suit.png"
+      },
+      {
+        "name": "Palazzo Kurti Set",
+        "image": "/dresses/traditional/palazzo_kurti_set.png"
+      },
+      {
+        "name": "Half Saree",
+        "image": "/dresses/traditional/half_saree.png"
+      }
+    ],
+    "Casual": [
+      {
+        "name": "Palazzo Casual Set",
+        "image": "/dresses/casual/palazzo_casual_set.png"
+      },
+      {
+        "name": "Flared Top Jeans",
+        "image": "/dresses/casual/flared_top_jeans.png"
+      },
+      {
+        "name": "Straight Pants Outfit",
+        "image": "/dresses/casual/straight_pants_outfit.png"
+      },
+      {
+        "name": "T Shirt Jeans Outfit Women",
+        "image": "/dresses/casual/t_shirt_jeans_outfit_women.png"
+      },
+      {
+        "name": "Tunic Top Pants",
+        "image": "/dresses/casual/tunic_top_pants.png"
+      },
+      {
+        "name": "Casual Maxi Dress",
+        "image": "/dresses/casual/casual_maxi_dress.png"
+      }
+    ],
+    "Party": [
+      {
+        "name": "Party Lehenga",
+        "image": "/dresses/party_wear/party_lehenga.png"
+      },
+      {
+        "name": "Reception Lehenga",
+        "image": "/dresses/party_wear/reception_lehenga.png"
+      },
+      {
+        "name": "Fish Cut Skirt Set",
+        "image": "/dresses/party_wear/fish_cut_skirt_set.png"
+      },
+      {
+        "name": "Party Anarkali",
+        "image": "/dresses/party_wear/party_anarkali.png"
+      },
+      {
+        "name": "Long Trail Gown",
+        "image": "/dresses/party_wear/long_trail_gown.png"
+      },
+      {
+        "name": "Shimmer Saree",
+        "image": "/dresses/party_wear/shimmer_saree.png"
+      }
+    ]
+  }
+}
