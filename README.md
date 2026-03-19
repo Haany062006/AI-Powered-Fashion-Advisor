@@ -134,6 +134,19 @@ http://127.0.0.1:5000
 * Keep `uploads/` folder empty (use `.gitkeep` if needed)
 
 ---
+## Roboflow Setup
+
+This project uses a pre-trained Roboflow model for body shape detection.
+
+Steps to use:
+
+1. Create an account at https://roboflow.com  
+2. Go to your dashboard and copy your API key  
+3. Create a `.env` file and add:
+
+ROBOFLOW_API_KEY=your_api_key_here
+
+Note: The model is already trained and hosted. No need to train again.
 
 ## 🎯 Future Improvements
 
